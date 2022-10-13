@@ -19,5 +19,6 @@ public class Write {
     public void createFile(String filename) throws IOException{
         File file = new File(filename);
         file.createNewFile();
+        file.exists();
     }
 }
