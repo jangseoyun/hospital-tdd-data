@@ -4,6 +4,11 @@ import com.line.domain.Hospital;
 
 public class HospitalParser implements Parser<Hospital> {
     //순서 : 기관아이디 0, 주소 1,  구 1, 병원 카테고리 2, 응급 4, 기관명10, 세부분과3
+   public String replaceAll(String str) {
+       str = str.replaceAll("\'", " ");
+       return str;
+   }
+
     @Override
     public Hospital parse(String str) {
         String[] splitStr = str.split(",");
