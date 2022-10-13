@@ -22,7 +22,7 @@ public class LineReader<T> {
 
         String str;
         br.readLine();
-        while ((str=br.readLine()) != null) {
+        while ((str = br.readLine()) != null) {
             result.add(parser.parse(str));
         }
 

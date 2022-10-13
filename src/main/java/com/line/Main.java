@@ -6,11 +6,12 @@ import com.line.parser.HospitalParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String filename = "/Users/seoyun/codeLion/hospital .csv";
+        String filename = "/Users/seoyun/codeLion/hospital.csv";
         LineReader<Hospital> hospitalLineReader = new LineReader<>(new HospitalParser());
         List<Hospital> hospitals = hospitalLineReader.readLines(filename);
 
@@ -33,6 +34,7 @@ public class Main {
                     , hospital.getSubdivision());
             dbData.add(makeStr);
         }
+        System.out.println();
         write.writeFile(dbData, reprocessData);
 
     }

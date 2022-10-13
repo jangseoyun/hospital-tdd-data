@@ -12,8 +12,9 @@ public class Write {
         BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
 
         for (String obj : objs) {
-            bw.write(obj);
+            bw.append(obj);
         }
+        bw.close();
     }
 
     public void createFile(String filename) throws IOException{
