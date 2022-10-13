@@ -20,6 +20,20 @@ public class Hospital {
         this.subdivision = subdivision;
     }
 
+    public String getSqlInsertQuery() {
+        String sql = String.format("INSERT INTO `likelion-db`.`seoul_hospital`\n" +
+                "(`id`,`address`,`district`,`category`,`emergency_room`,`name`,`subdivision`)\n"+
+                "VALUES\n" +
+                "(\"%s\",\n" +
+                "\"%s\",\n" +
+                "\"%s\",\n" +
+                "\"%s\",\n" +
+                "%d,\n" +
+                "\"%s\",\n" +
+                "\"%s\");", this.id, this.address, this.district, this.category, this.emergencyRoom, this.name, this.subdivision);
+        return sql;
+    }
+
     private String setDistrict() {
         String[] splitDistrict = address.split(" ");
         return this.district = splitDistrict[0] + " " + splitDistrict[1];
