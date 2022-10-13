@@ -12,7 +12,7 @@ public class HospitalParser implements Parser<Hospital> {
     @Override
     public Hospital parse(String str) {
         String[] splitStr = str.split(",");
-        return new Hospital(splitStr[0], splitStr[1], setDistrict(splitStr[1]), splitStr[2], splitStr[6], splitStr[10], splitStr[3]);
+        return new Hospital(splitStr[0], replaceAll(splitStr[1]), setDistrict(splitStr[1]), splitStr[2], splitStr[6], splitStr[10], splitStr[3]);
     }
 
     private String setDistrict(String district) {
