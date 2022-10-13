@@ -13,14 +13,28 @@ public class HospitalParser implements Parser<Hospital> {
     public Hospital parse(String str) {
         //TODO: 라인을 받고 바로 replace하면 메서드를 만들지 않아도 된다
         String[] splitStr = str.split(",");
-        return new Hospital(splitStr[0], replaceAll(splitStr[1]), splitStr[2], splitStr[6], splitStr[10], splitStr[3]);
+
+        String name = splitStr[10];
+        String subdivision = getSubdivision(name);
+
+        return new Hospital(splitStr[0]
+                , replaceAll(splitStr[1])
+                , splitStr[2]
+                , splitStr[6]
+                , splitStr[10]
+                , subdivision);
     }
 
-    /*this.id =id;
-    this.address =address;
-    this.district =district;
-    this.category =category;
-    this.emergencyRoom =emergencyRoom;
-    this.name =name;
-    this.subdivision =subdivision;*/
+    private String getSubdivision(String name) {
+        String[] subdivisions = {"소아과", "피부과", "성형외과", "정형외과", "산부인과", "관절", "안과", "가정의학과", "비뇨기과", "치과", "내과", "외과"};
+
+        for (String subdivision : subdivisions) {
+            if (name.contains(subdivision)) {
+                return subdivision;
+            }
+        }
+        return "";
+    }
+
+
 }
