@@ -19,7 +19,8 @@ public class Main {
         Write write = new Write();
         //write.createFile(reprocessData);
         //순서 : 기관아이디 0, 주소 1,  구 1, 병원 카테고리 2, 응급 4 int, 기관명10, 세부분과3
-        //파일 가공 후 쓰기
+        //파일 가공 후 쓰기 ->
+        // TODO: write.class로 리팩토링하기
         List<String> dbData = new ArrayList<>();
         for (Hospital hospital : hospitals) {
             String makeStr = String.format("(\'%s\',\'%s\',\'%s\',\'%s\',%d,\'%s\',\'%s\'),\n"
