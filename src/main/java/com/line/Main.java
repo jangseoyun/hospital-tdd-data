@@ -23,11 +23,11 @@ public class Main {
         //파일 가공 후 쓰기 ->
         // TODO: write.class로 리팩토링하기
         List<String> dbData = new ArrayList<>();
-        String insertSql =
+        String insertQuery =
                     "INSERT INTO `likelion-db`.`seoul_hospital`\n" +
                     "(`id`,`address`,`district`,`category`,`emergency_room`,`name`,`subdivision`)\n" +
                     "value\n";
-        dbData.add(insertSql);
+        dbData.add(insertQuery);
 
         for (Hospital hospital : hospitals) {
             String makeStr = String.format("(\'%s\',\'%s\',\'%s\',\'%s\',%d,\'%s\',\'%s\'),\n"
