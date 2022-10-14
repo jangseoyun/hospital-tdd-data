@@ -27,6 +27,12 @@ select subdivision,
 from seoul_hospital
 where subdivision like '%치과%';
 
+select district,
+    count(district) cnt
+from seoul_hospital
+where subdivision like '%성형외과%'
+group by district
+order by cnt desc;
 
 
 
