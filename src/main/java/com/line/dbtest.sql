@@ -13,4 +13,21 @@ group by district
 order by cnt desc;
 
 select *
-from seoul_hospital limit 1000;
+from seoul_hospital
+limit 1000;
+
+select subdivision,
+       count(subdivision) cnt
+from seoul_hospital
+group by subdivision
+order by cnt desc;
+
+select subdivision,
+       name
+from seoul_hospital
+where subdivision like '%치과%';
+
+
+
+
+
