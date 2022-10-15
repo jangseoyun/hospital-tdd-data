@@ -33,6 +33,9 @@ public class HospitalParser implements Parser<Hospital> {
             if (name.contains(subdivision)) {
                 return subdivision;
             }
+            if (name.contains("마디")) {
+                return "정형외과";
+            }
         }
         return "";
     }
