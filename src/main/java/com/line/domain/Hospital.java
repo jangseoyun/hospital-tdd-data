@@ -20,6 +20,16 @@ public class Hospital {
         this.subdivision = subdivision;
     }
 
+    public Hospital(String id, String address, String category, int emergencyRoom, String name, String subdivision) {
+        this.id = id;
+        this.address = address;
+        this.district = setDistrict();
+        this.category = category;
+        this.emergencyRoom = emergencyRoom;
+        this.name = name;
+        this.subdivision = subdivision;
+    }
+
     /*public String getSqlInsertQuery() {
         String sql = String.format("INSERT INTO `likelion-db`.`seoul_hospital`\n" +
                 "(`id`,`address`,`district`,`category`,`emergency_room`,`name`,`subdivision`)\n"+
@@ -65,5 +75,18 @@ public class Hospital {
 
     public String getSubdivision() {
         return subdivision;
+    }
+
+    @Override
+    public String toString() {
+        return "Hospital{" +
+                "id='" + id + '\'' +
+                ", address='" + address + '\'' +
+                ", district='" + district + '\'' +
+                ", category='" + category + '\'' +
+                ", emergencyRoom=" + emergencyRoom +
+                ", name='" + name + '\'' +
+                ", subdivision='" + subdivision + '\'' +
+                '}';
     }
 }
