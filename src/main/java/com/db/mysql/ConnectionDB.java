@@ -9,9 +9,7 @@ public class ConnectionDB {
     private static String connectionUrl = "jdbc:mysql://ec2-52-79-155-81.ap-northeast-2.compute.amazonaws.com:3306/likelion-db?serverTimezone=UTC";
     private static String dbId = "root";
     private static String dbPw = "password";
-
-    private static String sqlSelectAll = "SELECT * FROM `likelion-db`.seoul_hospital";
-
+    private static Query query = new QueryImpl();
 
     public static void main(String[] args) {
         Connection conn = null;
@@ -20,7 +18,7 @@ public class ConnectionDB {
 
         try {
             conn  =DriverManager.getConnection(connectionUrl, dbId, dbPw);//java mysql 연결
-            pstmt = conn.prepareStatement(sqlSelectAll);
+            pstmt = conn.prepareStatement(query.selectAll());
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
