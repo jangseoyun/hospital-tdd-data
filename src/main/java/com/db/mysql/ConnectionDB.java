@@ -3,12 +3,14 @@ package com.db.mysql;
 import com.line.domain.Hospital;
 
 import java.sql.*;
+import java.util.Map;
 
 public class ConnectionDB {
 
-    private final static String connectionUrl = "jdbc:mysql://ec2-52-79-155-81.ap-northeast-2.compute.amazonaws.com:3306/likelion-db?serverTimezone=UTC";
-    private final static String dbId = "root";
-    private final static String dbPw = "password";
+    private static Map<String, String> env = System.getenv();
+    private static String dbPw = env.get("DB_PASSWORD");
+    private static String dbUser = env.get("DB_USER");
+    private static String dbHost = env.get("DB_HOST");
     private static Query query = new QueryImpl();
 
     public static void main(String[] args) {
@@ -17,7 +19,7 @@ public class ConnectionDB {
         ResultSet rs = null;
 
         try {
-            conn = DriverManager.getConnection(connectionUrl, dbId, dbPw);//java mysql 연결
+            conn = DriverManager.getConnection(dbHost, dbUser, dbPw);//java mysql 연결
             pstmt = conn.prepareStatement(query.selectAll());
             rs = pstmt.executeQuery();
 
