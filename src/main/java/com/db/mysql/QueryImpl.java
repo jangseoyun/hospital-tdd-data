@@ -17,20 +17,11 @@ public class QueryImpl implements Query {
     }
 
     @Override
-    public String insertQuery(String id, String address, String district, String category, int emergencyRoom, String name, String subdivision) {
-
+    public String insertQuery() {
         String query = "";
         query += "INSERT INTO `likelion-db`.`seoul_hospital`";
         query += "(`id`,`address`,`district`,`category`,`emergency_room`,`name`,`subdivision`)";
-        query += "( "
-                    + id
-                    + address
-                    + district
-                    + category
-                    + emergencyRoom
-                    + name
-                    + subdivision
-                    + ")";
+        query += "values (?, ?, ?, ?, ?, ?, ?)";
         return query;
     }
 
@@ -39,7 +30,7 @@ public class QueryImpl implements Query {
         String query = "";
         query += "select *";
         query += "from users";
-        query += "where users.id = 1";
+        query += "where users.id = ?";
         System.out.println(query);
         return query;
     }
