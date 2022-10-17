@@ -15,10 +15,10 @@ public class UserDao {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection(dbHost, dbUser, dbPw);
-        PreparedStatement ps = conn.prepareStatement("insert into users() values (?, ?, ?)");
+        PreparedStatement ps = conn.prepareStatement("insert into users(id, name, password) values (?, ?, ?)");
         ps.setString(1, "1");
-        ps.setString(1, "1");
-        ps.setString(1, "1");
+        ps.setString(1, "hello");
+        ps.setString(1, "13323");
 
         ps.executeUpdate();
         ps.close();
