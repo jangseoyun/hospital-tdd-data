@@ -16,4 +16,9 @@ public class ConnectionDB {
     public Connection getConn() {
         return conn;
     }
+
+    public static void main(String[] args) {
+        
+    }
+
 }

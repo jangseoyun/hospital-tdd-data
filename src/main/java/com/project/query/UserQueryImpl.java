@@ -7,8 +7,8 @@ public class UserQueryImpl implements Query {
     public String findOne() {
         String query = "";
         query += "select *";
-        query += "from users";
-        query += "where users.id = ?";
+        query += " from users";
+        query += " where id = ?";
         System.out.println(query);
         return query;
     }
@@ -24,7 +24,7 @@ public class UserQueryImpl implements Query {
     public String findAll() {
         String query = "";
         query += "select *";
-        query += "from users";
+        query += " from users";
         return query;
     }
 }
