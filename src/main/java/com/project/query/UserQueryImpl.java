@@ -1,4 +1,4 @@
-package com.project.dao;
+package com.project.query;
 
 import com.db.mysql.Query;
 
