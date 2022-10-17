@@ -1,8 +1,8 @@
 package com.line.parser;
 
-import com.line.domain.Hospital;
+import com.project.vo.HospitalVo;
 
-public class HospitalParser implements Parser<Hospital> {
+public class HospitalParser implements Parser<HospitalVo> {
     //순서 : 기관아이디 0, 주소 1,  구 1, 병원 카테고리 2, 응급 6, 기관명10, 세부분과3
     public String replaceAll(String str) {
         str = str.replaceAll("\'", " ");
@@ -10,14 +10,14 @@ public class HospitalParser implements Parser<Hospital> {
     }
 
     @Override
-    public Hospital parse(String str) {
+    public HospitalVo parse(String str) {
         //TODO: 라인을 받고 바로 replace하면 메서드를 만들지 않아도 된다
         String[] splitStr = str.split(",");
 
         String name = splitStr[10];
         String subdivision = getSubdivision(name);
 
-        return new Hospital(splitStr[0]
+        return new HospitalVo(splitStr[0]
                 , replaceAll(splitStr[1])
                 , splitStr[2]
                 , splitStr[6]

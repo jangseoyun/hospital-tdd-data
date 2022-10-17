@@ -1,9 +1,9 @@
 package com.db.mysql;
 
 public interface Query {
-    String selectAll();
-    String insertQuery();
-    String userSelectOne();
+    String findOne();
 
-    String userInsert();
+    String add();
+
+    String findAll();
 }

@@ -1,19 +1,18 @@
 package com.line;
 
-import com.line.domain.Hospital;
+import com.project.vo.HospitalVo;
 import com.line.domain.write.Write;
 import com.line.parser.HospitalParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         String filename = "/Users/seoyun/codeLion/hospital.csv";
-        LineReader<Hospital> hospitalLineReader = new LineReader<>(new HospitalParser());
-        List<Hospital> hospitals = hospitalLineReader.readLines(filename);
+        LineReader<HospitalVo> hospitalLineReader = new LineReader<>(new HospitalParser());
+        List<HospitalVo> hospitals = hospitalLineReader.readLines(filename);
 
         //파일 생성
         String reprocessData = "get-csv-data.sql";
@@ -29,7 +28,7 @@ public class Main {
                     "value\n";
         dbData.add(insertQuery);
 
-        for (Hospital hospital : hospitals) {
+        for (HospitalVo hospital : hospitals) {
             String makeStr = String.format("(\'%s\',\'%s\',\'%s\',\'%s\',%d,\'%s\',\'%s\'),\n"
                     , hospital.getId()
                     , hospital.getAddress()

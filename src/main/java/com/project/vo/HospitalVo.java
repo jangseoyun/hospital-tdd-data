@@ -1,6 +1,6 @@
-package com.line.domain;
+package com.project.vo;
 
-public class Hospital {
+public class HospitalVo {
 
     private String id;
     private String address;
@@ -10,7 +10,7 @@ public class Hospital {
     private String name;
     private String subdivision;
 
-    public Hospital(String id, String address, String category, String emergencyRoom, String name, String subdivision) {
+    public HospitalVo(String id, String address, String category, String emergencyRoom, String name, String subdivision) {
         this.id = id;
         this.address = address;
         this.district = setDistrict();
@@ -20,7 +20,7 @@ public class Hospital {
         this.subdivision = subdivision;
     }
 
-    public Hospital(String id, String address, String category, int emergencyRoom, String name, String subdivision) {
+    public HospitalVo(String id, String address, String category, int emergencyRoom, String name, String subdivision) {
         this.id = id;
         this.address = address;
         this.district = setDistrict();
