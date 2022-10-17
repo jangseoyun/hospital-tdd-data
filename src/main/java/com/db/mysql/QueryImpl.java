@@ -35,5 +35,12 @@ public class QueryImpl implements Query {
         return query;
     }
 
+    @Override
+    public String userInsert() {
+        String query = "";
+        query += "insert into users(id, name, password) values (?, ?, ?)";
+        return query;
+    }
+
 
 }
