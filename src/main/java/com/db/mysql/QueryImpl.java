@@ -34,4 +34,15 @@ public class QueryImpl implements Query {
         return query;
     }
 
+    @Override
+    public String userSelectAll() {
+        String query = "";
+        query += "select *";
+        query += "from users";
+        query += "where users.id = 1";
+        System.out.println(query);
+        return query;
+    }
+
+
 }
