@@ -35,7 +35,7 @@ public class QueryImpl implements Query {
     }
 
     @Override
-    public String userSelectAll() {
+    public String userSelectOne() {
         String query = "";
         query += "select *";
         query += "from users";
