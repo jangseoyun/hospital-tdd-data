@@ -6,7 +6,7 @@ public class HospitalQueryImpl implements Query {
     @Override
     public String findAll() {
         String query = "";
-
+        query += ", id";
         query += ", address";
         query += ", district";
         query += ", category";

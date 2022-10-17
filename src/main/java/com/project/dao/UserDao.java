@@ -3,7 +3,6 @@ package com.project.dao;
 import com.db.mysql.ConnectionDB;
 import com.db.mysql.Query;
 import com.project.query.UserQueryImpl;
-import com.project.vo.UserVo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
