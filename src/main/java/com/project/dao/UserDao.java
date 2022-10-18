@@ -9,14 +9,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao {
-
-    public UserDao() throws SQLException {
-    }
-
+    private ConnectionDB connectionDB;
+    private Query query;
     private PreparedStatement ps = null;
 
-    ConnectionDB connectionDB = new ConnectionDB();
-    Query query = new UserQueryImpl();
+    public UserDao() throws SQLException {
+        this.connectionDB = new ConnectionDB();
+        this.query = new UserQueryImpl();
+    }
 
     public void add() {
         try {
