@@ -20,7 +20,8 @@ public class UserDao {
         this.ps = null;
     }
 
-    public void add(UserVo user) {
+    public void add(UserVo user) throws ClassNotFoundException {
+        //Class.forName("com.mysql.jdbc.Driver");
         try {
             ps = connectionDB.getConn().prepareStatement(query.add());
             ps.setInt(1, user.getId());
@@ -34,24 +35,26 @@ public class UserDao {
         }
     }
 
-    public void userFindById(int id) throws SQLException {
+    public UserVo userFindById(int id) throws SQLException {
         PreparedStatement ps = connectionDB.getConn().prepareStatement(query.findOne());
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
+        UserVo user = null;
         while (rs.next()) {
             int getId = rs.getInt(1);
             String getName = rs.getString(2);
             String getPassword = rs.getString(3);
-            System.out.println(getId);
+            user = new UserVo(getId, getName, getPassword);
         }
-
         ps.close();
+        return user;
+
     }
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         UserDao userDao = new UserDao();
-        userDao.add(new UserVo(2, "seoyun", "1234"));
-        userDao.userFindById(1);
+        userDao.add(new UserVo(1, "seoyun", "1234"));
+        //userDao.userFindById(1);
     }
 }
 
