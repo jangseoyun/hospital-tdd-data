@@ -44,7 +44,7 @@ public class UserDao {
             int getId = rs.getInt(1);
             String getName = rs.getString(2);
             String getPassword = rs.getString(3);
-            user = new UserVo(getId, getName, getPassword);
+            user = UserFactory.createUser(getId, getName, getPassword);
         }
         rs.close();
         ps.close();
