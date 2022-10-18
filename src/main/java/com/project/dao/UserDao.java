@@ -45,6 +45,7 @@ public class UserDao {
             String getPassword = rs.getString(3);
             user = new UserVo(getId, getName, getPassword);
         }
+        rs.close();
         ps.close();
         return user;
 
