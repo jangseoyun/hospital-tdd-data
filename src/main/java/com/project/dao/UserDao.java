@@ -45,9 +45,8 @@ public class UserDao {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         UserDao userDao = new UserDao();
-        //userDao.add();
+        userDao.add();
         userDao.userFindById(1);
-
     }
 }
 
