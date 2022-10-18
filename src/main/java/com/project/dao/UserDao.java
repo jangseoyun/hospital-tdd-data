@@ -20,8 +20,7 @@ public class UserDao {
         this.ps = null;
     }
 
-    public void add(UserVo user) throws ClassNotFoundException {
-        //Class.forName("com.mysql.jdbc.Driver");
+    public void add(UserVo user) {
         try {
             ps = connectionDB.getConn().prepareStatement(query.add());
             ps.setInt(1, user.getId());
