@@ -64,11 +64,27 @@ public class UserDao {
         System.out.println(result);// 성공하면 1, 실패하면 0
     }
 
+    public int getCountAll() {
+        int count = 0;
+        try {
+            PreparedStatement ps = toMysql.dbConnector().prepareStatement(query.getCountAll());
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            count = rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return count;
+    }
+
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         UserDao userDao = new UserDao();
         //userDao.add(new UserVo(1, "seoyun", "1234"));
         //userDao.userFindById(1);
-        userDao.deleteById(2);
+        //userDao.deleteById(2);
+        int countAll = userDao.getCountAll();
+        System.out.println(countAll);
     }
 }
 
