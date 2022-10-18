@@ -10,19 +10,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao {
-    private ConnectionMysqlImpl connectionDB;
+    private ConnectionMysqlImpl toMysql;
     private PreparedStatement ps;
     private Query query;
 
     public UserDao() throws SQLException {
-        this.connectionDB = new ConnectionMysqlImpl();
+        this.toMysql = new ConnectionMysqlImpl();
         this.query = new UserQueryImpl();
         this.ps = null;
     }
 
     public void add(UserVo user) {
         try {
-            ps = connectionDB.dbConnector().prepareStatement(query.add());
+            ps = toMysql.dbConnector().prepareStatement(query.add());
             ps.setInt(1, user.getId());
             ps.setString(2, user.getName());
             ps.setString(3, user.getPassword());
@@ -35,7 +35,7 @@ public class UserDao {
     }
 
     public UserVo userFindById(int id) throws SQLException {
-        PreparedStatement ps = connectionDB.dbConnector().prepareStatement(query.findOne());
+        PreparedStatement ps = toMysql.dbConnector().prepareStatement(query.findOne());
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
         UserVo user = null;
