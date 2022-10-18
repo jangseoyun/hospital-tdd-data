@@ -24,6 +24,9 @@ public class UserDao {
             ps.setInt(1, 1);
             ps.setString(2, "hello");
             ps.setString(3, "13323");
+            ps.executeUpdate();
+
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
