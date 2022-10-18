@@ -1,6 +1,7 @@
 package com.project.dao;
 
 import com.db.mysql.ConnectionMysqlImpl;
+import com.db.mysql.DbConnector;
 import com.project.query.Query;
 import com.project.query.UserQueryImpl;
 import com.project.vo.UserVo;
@@ -10,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao {
-    private ConnectionMysqlImpl toMysql;
+    private DbConnector toMysql;
     private PreparedStatement ps;
     private Query query;
 
@@ -51,10 +52,23 @@ public class UserDao {
 
     }
 
+    public void deleteById(int id) {
+        int result = 0;
+        try {
+            PreparedStatement ps = toMysql.dbConnector().prepareStatement(query.deleteOne());
+            ps.setInt(1, id);
+            result = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(result);// 성공하면 1, 실패하면 0
+    }
+
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         UserDao userDao = new UserDao();
-        userDao.add(new UserVo(1, "seoyun", "1234"));
+        //userDao.add(new UserVo(1, "seoyun", "1234"));
         //userDao.userFindById(1);
+        userDao.deleteById(2);
     }
 }
 

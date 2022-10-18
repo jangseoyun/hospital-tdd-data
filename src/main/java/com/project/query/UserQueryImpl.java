@@ -25,4 +25,20 @@ public class UserQueryImpl implements Query {
         query += " from users";
         return query;
     }
+
+    @Override
+    public String deleteOne() {
+        String query = "";
+        query += "delete from users where id = ?";
+        return query;
+    }
+
+    @Override
+    public String getCountAll() {
+        String query = "";
+        query += "select count(*) from users";
+        return query;
+    }
+
+
 }

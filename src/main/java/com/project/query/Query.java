@@ -6,4 +6,8 @@ public interface Query {
     String add();
 
     String findAll();
+
+    String deleteOne();
+
+    String getCountAll();
 }

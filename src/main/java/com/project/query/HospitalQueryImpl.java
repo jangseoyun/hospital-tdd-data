@@ -34,5 +34,16 @@ public class HospitalQueryImpl implements Query {
         return query;
     }
 
+    @Override
+    public String deleteOne() {
+        return "";
+    }
+
+    @Override
+    public String getCountAll() {
+        String query = "";
+        query += "select count(*) from seoul_hospital";
+        return query;
+    }
 
 }
