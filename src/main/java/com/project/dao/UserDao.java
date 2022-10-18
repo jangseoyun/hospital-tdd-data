@@ -22,7 +22,7 @@ public class UserDao {
 
     public void add(UserVo user) {
         try {
-            ps = connectionDB.getConn().prepareStatement(query.add());
+            ps = connectionDB.dbConnector().prepareStatement(query.add());
             ps.setInt(1, user.getId());
             ps.setString(2, user.getName());
             ps.setString(3, user.getPassword());
@@ -35,7 +35,7 @@ public class UserDao {
     }
 
     public UserVo userFindById(int id) throws SQLException {
-        PreparedStatement ps = connectionDB.getConn().prepareStatement(query.findOne());
+        PreparedStatement ps = connectionDB.dbConnector().prepareStatement(query.findOne());
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
         UserVo user = null;
