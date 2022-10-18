@@ -3,6 +3,7 @@ package com.project.dao;
 import com.db.mysql.ConnectionDB;
 import com.db.mysql.Query;
 import com.project.query.UserQueryImpl;
+import com.project.vo.UserVo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,12 +20,12 @@ public class UserDao {
         this.ps = null;
     }
 
-    public void add() {
+    public void add(UserVo user) {
         try {
             ps = connectionDB.getConn().prepareStatement(query.add());
-            ps.setInt(1, 1);
-            ps.setString(2, "hello");
-            ps.setString(3, "13323");
+            ps.setInt(1, user.getId());
+            ps.setString(2, user.getName());
+            ps.setString(3, user.getPassword());
             ps.executeUpdate();
 
             ps.close();
@@ -49,7 +50,7 @@ public class UserDao {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         UserDao userDao = new UserDao();
-        userDao.add();
+        userDao.add(new UserVo(2, "seoyun", "1234"));
         userDao.userFindById(1);
     }
 }
