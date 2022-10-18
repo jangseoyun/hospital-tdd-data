@@ -10,12 +10,13 @@ import java.sql.SQLException;
 
 public class UserDao {
     private ConnectionDB connectionDB;
+    private PreparedStatement ps;
     private Query query;
-    private PreparedStatement ps = null;
 
     public UserDao() throws SQLException {
         this.connectionDB = new ConnectionDB();
         this.query = new UserQueryImpl();
+        this.ps = null;
     }
 
     public void add() {
