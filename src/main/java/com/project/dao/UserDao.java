@@ -1,7 +1,7 @@
 package com.project.dao;
 
-import com.db.mysql.ConnectionDB;
-import com.db.mysql.Query;
+import com.db.mysql.ConnectionMysqlImpl;
+import com.project.query.Query;
 import com.project.query.UserQueryImpl;
 import com.project.vo.UserVo;
 
@@ -10,12 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao {
-    private ConnectionDB connectionDB;
+    private ConnectionMysqlImpl connectionDB;
     private PreparedStatement ps;
     private Query query;
 
     public UserDao() throws SQLException {
-        this.connectionDB = new ConnectionDB();
+        this.connectionDB = new ConnectionMysqlImpl();
         this.query = new UserQueryImpl();
         this.ps = null;
     }

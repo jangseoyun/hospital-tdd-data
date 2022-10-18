@@ -1,13 +1,13 @@
 package com.project.dao;
 
-import com.db.mysql.ConnectionDB;
-import com.db.mysql.Query;
+import com.db.mysql.ConnectionMysqlImpl;
+import com.project.query.Query;
 import com.project.query.HospitalQueryImpl;
 
 import java.sql.SQLException;
 
 public class HospitalDao {
-    ConnectionDB connectionDB = new ConnectionDB();
+    ConnectionMysqlImpl connectionDB = new ConnectionMysqlImpl();
     Query query = new HospitalQueryImpl();
 
     public HospitalDao() throws SQLException {

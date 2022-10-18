@@ -1,4 +1,4 @@
-package com.db.mysql;
+package com.project.query;
 
 public interface Query {
     String findOne();

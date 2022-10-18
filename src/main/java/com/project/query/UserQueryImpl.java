@@ -1,7 +1,5 @@
 package com.project.query;
 
-import com.db.mysql.Query;
-
 public class UserQueryImpl implements Query {
     @Override
     public String findOne() {
