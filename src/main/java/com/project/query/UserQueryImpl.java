@@ -34,6 +34,13 @@ public class UserQueryImpl implements Query {
     }
 
     @Override
+    public String deleteAll() {
+        String query = "";
+        query += "delete from users";
+        return query;
+    }
+
+    @Override
     public String getCountAll() {
         String query = "";
         query += "select count(*) from users";

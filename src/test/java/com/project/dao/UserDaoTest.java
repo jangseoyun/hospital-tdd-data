@@ -14,7 +14,6 @@ import java.sql.SQLException;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = UserDaoFactory.class)
-@DisplayName("user DAO 데이터 쿼리 ")
 class UserDaoTest {
 
     @Autowired

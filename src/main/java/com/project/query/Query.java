@@ -9,5 +9,7 @@ public interface Query {
 
     String deleteOne();
 
+    String deleteAll();
+
     String getCountAll();
 }
