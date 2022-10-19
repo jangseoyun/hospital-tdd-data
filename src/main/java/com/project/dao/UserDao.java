@@ -57,7 +57,7 @@ public class UserDao {
             int result = ps.executeUpdate();
             System.out.println(result);
         } catch (SQLException e) {
-            throw new RuntimeException("전체 삭제가 되지 않았습니다");
+            throw new RuntimeException("user table 전체 삭제 실패");
         }
     }
 
