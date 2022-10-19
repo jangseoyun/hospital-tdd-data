@@ -51,16 +51,25 @@ public class UserDao {
 
     }
 
+    public void deleteAll(){
+        try {
+            PreparedStatement ps = toMysql.dbConnector().prepareStatement(query.deleteAll());
+            int result = ps.executeUpdate();
+            System.out.println(result);
+        } catch (SQLException e) {
+            throw new RuntimeException("전체 삭제가 되지 않았습니다");
+        }
+    }
+
     public void deleteById(int id) {
-        int result = 0;
         try {
             PreparedStatement ps = toMysql.dbConnector().prepareStatement(query.deleteOne());
             ps.setInt(1, id);
-            result = ps.executeUpdate();
+            int result = ps.executeUpdate();
+            System.out.println(result);// 성공하면 1, 실패하면 0
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(result);// 성공하면 1, 실패하면 0
     }
 
     public int getCountAll() {
