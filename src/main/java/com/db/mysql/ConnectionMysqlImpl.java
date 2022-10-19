@@ -3,7 +3,7 @@ package com.db.mysql;
 import java.sql.*;
 import java.util.Map;
 
-public class ConnectionMysqlImpl implements DbConnector{//TODO: db를 설정을 각각 적용해주면 좋겠다
+public class ConnectionMysqlImpl implements DbConnector{
     private Map<String, String> env;
     private Connection conn;
 

@@ -1,6 +1,5 @@
 package com.project.dao;
 
-import com.db.mysql.ConnectionMysqlImpl;
 import com.project.vo.UserVo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
