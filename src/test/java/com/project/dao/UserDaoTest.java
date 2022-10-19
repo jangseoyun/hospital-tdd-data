@@ -1,5 +1,6 @@
 package com.project.dao;
 
+import com.db.mysql.ConnectionMysqlImpl;
 import com.project.vo.UserVo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -14,12 +15,20 @@ class UserDaoTest {
     @Test
     void 사용자등록테스트() throws SQLException, ClassNotFoundException {
         //given
-        UserDao userDao = new UserDao();
+        //UserDao userDao = new UserDao(new ConnectionMysqlImpl());
+        UserDao userDao = new UserDaoFactory().awsUserDao();
         UserVo user = new UserVo(2, "hellohahaha", "1234");
         userDao.add(user);
 
-        UserVo selectUserOne = userDao.userFindById(2);
+        UserVo selectUserOne = userDao.userFindById(1);
         //when
-        Assertions.assertEquals("hellohahaha", selectUserOne.getName());
+        Assertions.assertEquals("seoyun", selectUserOne.getName());
+    }
+
+    @DisplayName("특정 사용자 삭제")
+    @Test
+    void 특정사용자삭제() throws SQLException {
+        UserDao userDao = new UserDaoFactory().awsUserDao();
+
     }
 }

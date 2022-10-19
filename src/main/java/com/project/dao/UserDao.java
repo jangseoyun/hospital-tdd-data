@@ -1,6 +1,5 @@
 package com.project.dao;
 
-import com.db.mysql.ConnectionMysqlImpl;
 import com.db.mysql.DbConnector;
 import com.project.query.Query;
 import com.project.query.UserQueryImpl;
@@ -15,8 +14,8 @@ public class UserDao {
     private PreparedStatement ps;
     private Query query;
 
-    public UserDao() throws SQLException {
-        this.toMysql = new ConnectionMysqlImpl();
+    public UserDao(DbConnector toDatabase) throws SQLException {
+        this.toMysql = toDatabase;
         this.query = new UserQueryImpl();
         this.ps = null;
     }
@@ -79,7 +78,7 @@ public class UserDao {
     }
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDao userDao = new UserDao();
+        UserDao userDao = new UserDaoFactory().awsUserDao();
         //userDao.add(new UserVo(1, "seoyun", "1234"));
         //userDao.userFindById(1);
         //userDao.deleteById(2);
